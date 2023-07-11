@@ -3,6 +3,8 @@ const Processor = require('./Processor.js')
 const Table = require('./Table.js')
 const HtmlParser = require('./HtmlParser.js')
 const Writer = require('./Writer.js')
+const PdfWriter = require('./PdfWriter.js')
+
 
 const leitor = new Reader()
 const escritor = new Writer()
@@ -19,6 +21,8 @@ async function main (){
 
     
     const write = await escritor.Write("htmlGerado.html",html)
+
+    PdfWriter.WritePdf('pdfGerado.pdf',html)
     console.log(write)
     
 }
